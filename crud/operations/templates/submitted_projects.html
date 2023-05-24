@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submitted Projects</title>
+    <!-- Add any necessary CSS or script includes -->
+</head>
+<body>
+    <h1>Submitted Projects</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Project Description</th>
+                <!-- Add more table headers for additional project details -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in submitted_projects %}
+            <tr>
+                <td>{{ project.project_name }}</td>
+                <td>{{ project.project_description }}</td>
+                <!-- Add more table cells for additional project details -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

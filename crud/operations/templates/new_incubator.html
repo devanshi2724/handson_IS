@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Incubator</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'operations/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <style>
+        .custom-input {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-4">New Incubator</h1>
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="{{ form.project_name.id_for_label }}">Project Name:</label>
+                            {{ form.project_name }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.project_desc.id_for_label }}">Project Description:</label>
+                            {{ form.project_desc }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.no_of_employees.id_for_label }}">Number of Employees:</label>
+                            {{ form.no_of_employees }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.components.id_for_label }}">Components:</label>
+                            {{ form.components }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.type.id_for_label }}">Type:</label>
+                            {{ form.type }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.status.id_for_label }}">Status:</label>
+                            {{ form.status }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.user_id.id_for_label }}">User Id:</label>
+                            {{ form.user_id }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.customer_count.id_for_label }}">Customer Count:</label>
+                            {{ form.customer_count  }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="{{ form.sti_owner.id_for_label }}">Sti Owner:</label>
+                            {{ form.sti_owner }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.revenue.id_for_label }}">Revenue Id:</label>
+                            {{ form.revenue   }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.effort_involved.id_for_label }}">Effort Involved:</label>
+                            {{ form.effort_involved  }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.no_of_customer.id_for_label }}">No of customer:</label>
+                            {{ form.no_of_customer  }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.is_new_business.id_for_label }}">NEW Business:</label>
+                            {{ form.is_new_business  }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.creation_date.id_for_label }}">Creation Date:</label>
+                            {{ form.creation_date }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.ideation_count.id_for_label }}">Ideation Count:</label>
+                            {{ form.ideation_count  }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.incubation_count.id_for_label }}">Incubation Count:</label>
+                            {{ form.incubation_count   }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.scaling_count.id_for_label }}">Scaling Count:</label>
+                            {{ form.scaling_count   }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.industrialized_count.id_for_label }}">Industrialized Count:</label>
+                            {{ form.industrialized_count  }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.optimised_count.id_for_label }}">Optimized Count:</label>
+                            {{ form.optimised_count   }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.first_name.id_for_label }}">First Name:</label>
+                            {{ form.first_name  }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
+                            {{ form.last_name  }}
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script>
+        $(function() {
+            // Datepicker initialization
+            $("#id_creation_date").datepicker({
+                dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                changeYear: true,
+                beforeShow: function(input, inst) {
+                    inst.dpDiv.css({
+                        marginLeft: (input.offsetWidth - 5) + "px",
+                        marginTop: -(inst.dpDiv.outerHeight()) + "px",
+                        backgroundColor: "white",
+                        border: "1px solid #ccc"
+                    });
+                },
+                onSelect: function(dateText, inst) {
+                    inst.dpDiv.find(".ui-state-default").css("color", "#ff8000");
+                }
+            }).datepicker("widget").addClass("datepicker-inline");
+        });
+    </script>
+</body>
+</html>
