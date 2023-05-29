@@ -10,11 +10,12 @@
         .custom-input {
             width: 100%;
         }
+         
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center mt-4">New Incubator</h1>
+        <h3 class="text-center mt-4">New Project</h3>
         <div class="form-container">
             <form method="post">
                 {% csrf_token %}
@@ -49,11 +50,9 @@
                             {{ form.user_id }}
                         </div>
                         <div class="form-group">
-                            <label for="{{ form.customer_count.id_for_label }}">Customer Count:</label>
+                            <label for="{{ form.customer_count.id_for_label }}">State/Customer Count:</label>
                             {{ form.customer_count  }}
                         </div>
-                    </div>
-                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="{{ form.sti_owner.id_for_label }}">Sti Owner:</label>
                             {{ form.sti_owner }}
@@ -62,6 +61,12 @@
                             <label for="{{ form.revenue.id_for_label }}">Revenue Id:</label>
                             {{ form.revenue   }}
                         </div>
+                     
+                        
+                    </div>
+                    <div class="col-md-6">
+                       
+                     
                         <div class="form-group">
                             <label for="{{ form.effort_involved.id_for_label }}">Effort Involved:</label>
                             {{ form.effort_involved  }}
@@ -71,41 +76,41 @@
                             {{ form.no_of_customer  }}
                         </div>
                         <div class="form-group">
-                            <label for="{{ form.is_new_business.id_for_label }}">NEW Business:</label>
+                            <label for="{{ form.is_new_business.id_for_label }}">New Business:</label>
                             {{ form.is_new_business  }}
                         </div>
                         <div class="form-group">
                             <label for="{{ form.creation_date.id_for_label }}">Creation Date:</label>
                             {{ form.creation_date }}
                         </div>
-                        <div class="form-group">
+                        {% comment %} <div class="form-group">
                             <label for="{{ form.ideation_count.id_for_label }}">Ideation Count:</label>
                             {{ form.ideation_count  }}
-                        </div>
-                        <div class="form-group">
+                        </div> {% endcomment %}
+                        {% comment %} <div class="form-group">
                             <label for="{{ form.incubation_count.id_for_label }}">Incubation Count:</label>
                             {{ form.incubation_count   }}
-                        </div>
-                        <div class="form-group">
+                        </div> {% endcomment %}
+                        {% comment %} <div class="form-group">
                             <label for="{{ form.scaling_count.id_for_label }}">Scaling Count:</label>
                             {{ form.scaling_count   }}
-                        </div>
-                        <div class="form-group">
+                        </div> {% endcomment %}
+                        {% comment %} <div class="form-group">
                             <label for="{{ form.industrialized_count.id_for_label }}">Industrialized Count:</label>
                             {{ form.industrialized_count  }}
-                        </div>
-                        <div class="form-group">
+                        </div> {% endcomment %}
+                        {% comment %} <div class="form-group">
                             <label for="{{ form.optimised_count.id_for_label }}">Optimized Count:</label>
                             {{ form.optimised_count   }}
-                        </div>
-                        <div class="form-group">
+                        </div> {% endcomment %}
+                        {% comment %} <div class="form-group">
                             <label for="{{ form.first_name.id_for_label }}">First Name:</label>
                             {{ form.first_name  }}
                         </div>
                         <div class="form-group">
                             <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
                             {{ form.last_name  }}
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>

@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Processed Selected Projects</title>
+    <!-- Add your custom styling and scripts here -->
+</head>
+<body>
+    <h1>Selected Projects:</h1>
+    <ul>
+        {% for project_id in selected_projects %}
+        <li>{{ project_id }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

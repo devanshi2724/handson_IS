@@ -14,8 +14,8 @@
             text-align: center;
             background-color: #f2f2f2;
         }
-        td{
-            text-align: center; 
+        td {
+            text-align: center;
         }
         .details-toggle {
             cursor: pointer;
@@ -40,8 +40,8 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center mt-4">Incubator List</h1>
-        <form action="/process_selected_projects" method="post">
+        <h3 class="text-center mt-4">Project List</h3>
+        <form action="{% url 'process_selected_projects' %}" method="post">
             {% csrf_token %}
             <table class="table table-bordered">
                 <thead class="table-light">
@@ -49,7 +49,7 @@
                         <th scope="col"></th>
                         <th scope="col">Project Name</th>
                         <th scope="col">Project Description</th>
-                        <th scope="col"></th>
+                        <th scope="col">Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,17 +62,21 @@
                     </tr>
                     <tr class="details-row" style="display: none;">
                         <td colspan="3">
-                            <table>
-                                <tr>
-                                    <th>No. of Employees</th>
-                                    <th>Components</th>
-                                    <!-- Add more table headers for other fields -->
-                                </tr>
-                                <tr>
-                                    <td>{{ incubator.no_of_employees }}</td>
-                                    <td>{{ incubator.components }}</td>
-                                    <!-- Add more table cells for other fields -->
-                                </tr>
+                            <table class="table table-bordered">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>No. of Employees</th>
+                                        <th>Components</th>
+                                        <!-- Add more table headers for other fields -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ incubator.no_of_employees }}</td>
+                                        <td>{{ incubator.components }}</td>
+                                        <!-- Add more table cells for other fields -->
+                                    </tr>
+                                </tbody>
                             </table>
                         </td>
                     </tr>
@@ -81,6 +85,38 @@
             </table>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
+        {% if incubators.has_other_pages %}
+        <nav aria-label="Incubators pagination" class="mt-4">
+            <ul class="pagination justify-content-center">
+                {% if incubators.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1" aria-label="First">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% for page_num in incubators.paginator.page_range %}
+                {% if page_num == incubators.number %}
+                <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% if incubators.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ incubators.paginator.num_pages }}" aria-label="Last">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
     </div>
 
     <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">

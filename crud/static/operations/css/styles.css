@@ -52,6 +52,18 @@ select {
     box-sizing: border-box;
     font-size: 16px;
 }
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+
 
 button[type="submit"] {
     background-color: #ff8000;
@@ -61,8 +73,10 @@ button[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    
+    
 }
 
 button[type="submit"]:hover {
-    background-color: #e67300;
+    background-color: black;
 }
